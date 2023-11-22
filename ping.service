@@ -1,0 +1,16 @@
+[Unit]
+Description=Détecte les changements d'état des machines dans le fichier bdd et le corrige si besoin toutes les minutes
+After=network-online.target
+
+[Service]
+Type=simple
+PIDFile=/run/ping.pid
+
+ExecStart=/usr/sbin/ping
+ExecReload=/usr/bin/ping -r
+
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+
