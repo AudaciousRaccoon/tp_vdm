@@ -1,1 +1,2 @@
-dumbip:1.2.3.4:down
+dumbip:1.2.3.4:down:group_name
+antton:10.125.23.75:up:group_name
