@@ -1,1 +1,6 @@
-dumbip:1.2.3.4:down
+dumbip:8.8.8.8:UP:456G
+name:123.45.212.43:DOWN:324M
+loic:0.0.0.0:UP:45T
+laura:10.125.23.80:DOWN:25G
+elyes:10.125.23.2:DOWN:34G
+antton:10.125.23.75:DOWN:67G

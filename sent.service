@@ -1,0 +1,15 @@
+[Unit]
+Description=Scan for events in directory and send modified files on SFTP server
+After=network-online.target
+
+[Service]
+Type=simple
+PIDFile=/run/sent.pid
+
+ExecStart=/usr/sbin/sent
+ExecReload=/usr/bin/sent -r
+
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
