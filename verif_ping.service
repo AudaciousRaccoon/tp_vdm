@@ -4,11 +4,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-PIDFile=/run/ping.pid
-
-ExecStart=/usr/sbin/ping
-ExecReload=/usr/bin/ping -r
-
+ExecStart=/usr/bin/verif_ping
 TimeoutStopSec=5
 
 [Install]
