@@ -65,6 +65,7 @@ sftp -P 2222 admin_vdm@10.125.23.75  << vanille
                 exit 
 vanille
 
+rm bdd 
 
 
 
