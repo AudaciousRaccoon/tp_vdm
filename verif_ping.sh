@@ -2,15 +2,22 @@
 
 source /etc/verif_ping.conf
 
+longueur=$(wc -l $bdd | cut -d" " -f1)
 
 while [ a = a ];do
 	
+	changement=False
+
+	if [ $longueur != $(wc -l $bdd | cut -d" " -f1) ];then
+		
+		changement=True	
+
+	fi	
 
 	# Exraction de la liste des IP dans la BDD
 	IPs=$(cut -d: -f3 $bdd)
-
-	changement=False
-
+	longueur=$(wc -l $bdd | cut -d" " -f1)
+	
 	# Les séparateurs de la liste sont des passages à la ligne
 	IFS=$'\n'
 	for IP in $IPs;do
@@ -39,7 +46,7 @@ while [ a = a ];do
 	if [ $changement = True ];then
 		
 		bash html.sh
-
+		echo "actualisation de la page html"
 	fi
 		
 	echo "fin d'une boucle"
