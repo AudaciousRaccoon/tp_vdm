@@ -2,10 +2,10 @@
 
 echo "Bienvenue dans MDM, le manager de machines que le monde entier nous envie"
 
-#sftp -P 2222 admin_vdm@10.125.23.75  << chocolat 
-#		get bdd 
-#                exit 
-#chocolat
+sftp -P 2222 admin_vdm@10.125.23.75  << chocolat 
+		get bdd 
+                exit 
+chocolat
 
 loop=True
 
@@ -44,21 +44,23 @@ do
 	       	if [ $arg3 = --name ]
 		then
 			cat bdd | sed -E "s/^$arg1[^$]*$/$arg4:$ip:$ip_status:$arg2/g" > tmp
+			#cat tmp
 			cat tmp > bdd
 			rm tmp
 		elif [ $arg3 = --group ]
 		then
 			cat bdd | sed -E "s/^$arg1[^$]*$/$arg1:$ip:$ip_status:$arg4/g" > tmp
+			#cat tmp
 			cat tmp > bdd
 			rm tmp
 		fi
 	fi	
 done
 
-#sftp -P 2222 admin_vdm@10.125.23.75  << vanille
-#		put  bdd2 
-#                exit 
-#vanille
+sftp -P 2222 admin_vdm@10.125.23.75  << vanille
+		put  bdd 
+                exit 
+vanille
 
 
 
