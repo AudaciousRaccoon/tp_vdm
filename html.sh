@@ -19,12 +19,6 @@ for group in $groups;do
 	echo "<tbody>" >> $page
 	IFS=$'\n'
 	for member in $members;do
-		status=$(echo $member | cut -d: -f4)
-	       	if [ $status = UP ];then
-			color=green
-		else
-			color=red
-		fi	
 		echo $member | sed -E "s/^[^:]*://g" | sed -E "s/^/<tr><td>/g" | sed -E "s/:/<\/td><td>/g" | sed -E "s/$/<\/td><\/tr>/g" | sed "s/<td>UP/<td style='color:green;'>UP/g" | sed "s/<td>DOWN/<td style='color:red;'>DOWN/g"  >> $page
 
 	done
