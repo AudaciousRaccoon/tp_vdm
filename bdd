@@ -1,2 +1,6 @@
-dumbip:1.2.3.4:down:group_name
-antton:10.125.23.75:up:group_name
+supergroup:maxime:7.8.9.10:down:25G
+supergroup:loic:56.23.58.25:down:9G
+supergroup:elyes:7.8.9.4:new:25G
+group1:laura:7.4.5.6:down:1T
+supergroup:antton:1.2.3.5:new:2Mo
+supergroup:clara:1.2.3.5:new:47T
