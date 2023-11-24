@@ -1,0 +1,43 @@
+services:
+  vdm_nginx:
+    build: ./docker_nginx
+    image: nginx
+    networks:
+      my_net:
+        ipv4_address: 1.2.3.2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - vol_nginx:/var/vdm
+
+  vdm_proftpd:
+    build: ./docker_proftpd
+    image: proftpd
+    networks:
+      my_net:
+        ipv4_address: 1.2.3.3
+    ports:
+      - "2222:2222"
+    volumes:
+      - vol_proftpd:/var/vdm
+  
+  vdm_core:
+    build: ./docker_core_service
+    image: core
+    volumes:
+      - vol_proftpd:/var/vdm
+      - vol_nginx:/var/www/html/vdm
+
+volumes:
+  vol_proftpd:
+  vol_nginx:
+
+networks:
+  my_net:
+    name: my_net
+    ipam:
+      driver: default
+      config:
+        - subnet: 1.2.3.0/24
+          gateway: 1.2.3.1
