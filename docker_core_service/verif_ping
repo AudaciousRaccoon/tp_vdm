@@ -56,5 +56,5 @@ while [ a = a ];do
 	fi
 		
 	echo "fin d'une boucle"
-	#sleep 6
+	sleep 10
 done

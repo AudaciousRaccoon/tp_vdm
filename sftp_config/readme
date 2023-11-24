@@ -1,7 +1,0 @@
-on a mis le fichier proftpd.conf pour la connexion sftp
-
-ce sera ensuite à voir pour l'installation docker les choses suivantes:
--creation du  user admin_vdm
--mise des clés publiques au bon endroit (pointer authorizedkeys dans proftpd.conf pour sftp + dans home de admin_vdm .ssh/)
--creation du home de admin_vdm
--mettre les droits qui vont bien (pour les clés autorisées)
