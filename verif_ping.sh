@@ -5,9 +5,9 @@ source /etc/verif_ping.conf
 longueur=$(wc -l $bdd | cut -d" " -f1)
 
 
-#while ! [ -f $bdd ];do
-#	sleep 1
-#done
+while ! [ -f $bdd ];do
+	sleep 1
+done
 
 
 while [ a = a ];do

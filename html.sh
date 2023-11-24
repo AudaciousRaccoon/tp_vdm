@@ -1,5 +1,18 @@
 source /etc/verif_ping.conf
+
+
+# Vérification de l'existence de bdd
+if ! [ -f $bdd ];then
+	rm $path/*.html 
+	echo "<meta charset="UTF-8">" > $path/index.html
+	echo "<h1> Base de donnée absente </h1>" >> $path/index.html
+	exit 
+fi
+
+
 liste=$(cat $bdd)
+
+
 
 groups=$(cut -d: -f1 $bdd | sort -u)
 

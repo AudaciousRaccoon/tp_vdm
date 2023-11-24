@@ -21,10 +21,10 @@ cp bdd /var/vdm
 
 chown -R admin_vdm: /var/vdm/
 chmod 444 /etc/proftpd/keys/admin_vdm
+cp modules.conf /etc/proftpd/
 
 cp verif_ping.service /etc/systemd/system
 cp verif_ping.sh /usr/bin/verif_ping
 cp html.sh /usr/bin
 cp verif_ping.conf /etc/verif_ping.conf
-cp modules.conf /etc/proftpd/
 
