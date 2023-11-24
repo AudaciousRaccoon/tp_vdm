@@ -26,6 +26,14 @@ do
 	if [ $action = stop ] || [ $action = exit ]
 	then
 		loop=false
+	elif [ $action = help ]
+	then
+		echo "actions possibles: "
+		echo "add groupe username IP taille_disque"
+		echo "remove username"
+		echo "change username groupe --name nouveau_nom"
+		echo "change username groupe --group nouveau_groupe"
+		echo "stop ou exit pour quitter"
 	elif [ $action = add ]
 	then
 		echo "$arg1:$arg2:$arg3:new:$arg4" >> bdd
