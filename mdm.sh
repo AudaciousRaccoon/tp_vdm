@@ -1,23 +1,29 @@
 #!/bin/bash
 
-
+source mdm.conf
 
 #format machine dans bdd group:nom:ip:statut:size
 
 echo "Bienvenue dans MDM, le manager de machines que le monde entier nous envie"
 
-sftp -P 2222 admin_vdm@10.125.23.75  << chocolat 
+sftp -P 2222 admin_vdm@$IP_sftp  << chocolat 
 		get bdd 
                 exit 
 chocolat
 
+if ! [ -f bdd ]
+then
+	echo "bdd n'a pas pu être récuperée"
+	echo "une nouvelle bdd va donc etre crée"
+	touch bdd
+fi
 loop=True
 
 while [ $loop = True ]
 do
 	read -p "Entrez votre commande : " action arg1 arg2 arg3 arg4 arg5
 
-	if [ $action = stop ]
+	if [ $action = stop ] || [ $action = exit ]
 	then
 		loop=false
 	elif [ $action = add ]
@@ -60,7 +66,7 @@ do
 	fi	
 done
 
-sftp -P 2222 admin_vdm@10.125.23.75  << vanille
+sftp -P 2222 admin_vdm@$IP_sftp  << vanille
 		put  bdd 
                 exit 
 vanille
